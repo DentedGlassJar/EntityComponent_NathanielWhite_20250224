@@ -8,12 +8,15 @@ namespace EntityComponent_NathanielWhite_20250224
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private GameObject player;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            player = new GameObject();
         }
 
         protected override void Initialize()
@@ -23,11 +26,13 @@ namespace EntityComponent_NathanielWhite_20250224
             base.Initialize();
         }
 
-        protected override void LoadContent()
+        public void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            Texture2D objTexture = Content.Load<Texture2D>("CoolSprite");
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -35,7 +40,7 @@ namespace EntityComponent_NathanielWhite_20250224
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            player.Update();
 
             base.Update(gameTime);
         }
@@ -44,7 +49,7 @@ namespace EntityComponent_NathanielWhite_20250224
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            player.Draw();
 
             base.Draw(gameTime);
         }

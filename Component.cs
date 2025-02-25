@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +11,51 @@ namespace EntityComponent_NathanielWhite_20250224
 {
     public class Component
     {
+        public virtual void Draw(Texture2D _texture, Vector2 _position, Color _color)
+        {
+        }
 
+        public virtual void Update(Vector2 _position)
+        {
+        }
     }
 
-    public class RenderingComponent : Component
+    public class DrawComponent : Component
     {
+        private SpriteBatch _spriteBatch;
 
+        public override void Draw(Texture2D _texture, Vector2 _position, Color _color)
+        {
+            //_spriteBatch.Begin();
+            //_spriteBatch.Draw(_texture, _position, _color);
+            //_spriteBatch.End();
+        }
     }
 
     public class InputComponent : Component
     {
+        public override void Update(Vector2 _position)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up))
+            {
+                _position.Y -= 1f;
+            }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
+                _position.X += 1f;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
+            {
+                _position.Y += 1f;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                _position.X += 1f;
+            }
+
+        }
     }
 }
