@@ -11,6 +11,7 @@ namespace EntityComponent_NathanielWhite_20250224
 {
     public class Component
     {
+        // Virtual methods for drawing a sprite and updating the movement of it
         public virtual void Draw(Texture2D _texture, Vector2 _position, Color _color)
         {
         }
@@ -20,6 +21,8 @@ namespace EntityComponent_NathanielWhite_20250224
         }
     }
 
+    // A child that inherits from the Component class, with the child only using the draw method with the parameters to get the texture,
+    // position and color of the sprite
     public class DrawComponent : Component
     {
         public override void Draw(Texture2D _texture, Vector2 _position, Color _color)

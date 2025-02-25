@@ -31,7 +31,7 @@ namespace EntityComponent_NathanielWhite_20250224
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            Texture2D objTexture = Content.Load<Texture2D>("CoolSprite");
+            
 
         }
 
