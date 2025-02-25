@@ -22,13 +22,9 @@ namespace EntityComponent_NathanielWhite_20250224
 
     public class DrawComponent : Component
     {
-        private SpriteBatch _spriteBatch;
-
         public override void Draw(Texture2D _texture, Vector2 _position, Color _color)
         {
-            //_spriteBatch.Begin();
-            //_spriteBatch.Draw(_texture, _position, _color);
-            //_spriteBatch.End();
+
         }
     }
 

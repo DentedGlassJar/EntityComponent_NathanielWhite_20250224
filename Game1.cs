@@ -26,7 +26,7 @@ namespace EntityComponent_NathanielWhite_20250224
             base.Initialize();
         }
 
-        public void LoadContent()
+        protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
