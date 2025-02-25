@@ -12,22 +12,44 @@ namespace EntityComponent_NathanielWhite_20250224
 {
     public class GameObject
     {
-        public InputComponent inputRef;
-        public DrawComponent drawRef;
+        public List<Component> componentsList = new List<Component>();
 
-        //Texture2D objTexture = Content.Load<Texture2D>("CoolSprite");
-        Vector2 objPosition = Vector2.Zero;
+        public Game1 gameRef;
+
+        Texture2D objTexture;
+        public Vector2 objPosition = Vector2.Zero;
+
+        public void Start()
+        {
+            var inputRef = new InputComponent();
+            var drawRef = new DrawComponent();
+
+            AddComponent(inputRef);
+            AddComponent(drawRef);
+
+            objTexture = gameRef.Content.Load<Texture2D>("CoolSprite");
+        }
 
         public void Update()
         {
-            inputRef = new InputComponent();
-            inputRef.Update(objPosition);
+            foreach(var component in componentsList)
+            {
+                component.Update();
+            }
         }
 
         public void Draw()
         {
-            drawRef = new DrawComponent();
-            //drawRef.Draw(objTexture, objPosition, Color.White);
+            foreach (var component in componentsList)
+            {
+                component.Draw(objTexture, objPosition, Color.White);
+            }
+        }
+
+        public void AddComponent(Component _component)
+        {
+            componentsList.Add(_component);
+            _component.gameObjectOwn = this;
         }
     }
 }

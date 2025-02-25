@@ -11,13 +11,16 @@ namespace EntityComponent_NathanielWhite_20250224
 {
     public class Component
     {
+        public GameObject gameObjectOwn;
         // Virtual methods for drawing a sprite and updating the movement of it
         public virtual void Draw(Texture2D _texture, Vector2 _position, Color _color)
         {
+            
         }
 
-        public virtual void Update(Vector2 _position)
+        public virtual void Update()
         {
+
         }
     }
 
@@ -27,32 +30,32 @@ namespace EntityComponent_NathanielWhite_20250224
     {
         public override void Draw(Texture2D _texture, Vector2 _position, Color _color)
         {
-
+            gameObjectOwn.gameRef._spriteBatch.Draw(_texture, _position, _color);  
         }
     }
 
     public class InputComponent : Component
     {
-        public override void Update(Vector2 _position)
+        public override void Update()
         {
             if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
-                _position.Y -= 1f;
+                gameObjectOwn.objPosition.Y -= 1f;
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                _position.X += 1f;
+                gameObjectOwn.objPosition.X += 1f;
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.Down))
             {
-                _position.Y += 1f;
+                gameObjectOwn.objPosition.Y += 1f;
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                _position.X += 1f;
+                gameObjectOwn.objPosition.X -= 1f;
             }
 
         }

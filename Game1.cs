@@ -1,13 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Security.Cryptography.X509Certificates;
 
 namespace EntityComponent_NathanielWhite_20250224
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public SpriteBatch _spriteBatch;
         private GameObject player;
 
         public Game1()
@@ -17,11 +18,13 @@ namespace EntityComponent_NathanielWhite_20250224
             IsMouseVisible = true;
 
             player = new GameObject();
+            player.gameRef = this;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            player.Start();
 
             base.Initialize();
         }
@@ -49,7 +52,9 @@ namespace EntityComponent_NathanielWhite_20250224
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _spriteBatch.Begin();
             player.Draw();
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
