@@ -7,7 +7,6 @@ namespace EntityComponent_NathanielWhite_20250224
 {
     public class Game1 : Game
     {
-        
         private GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
 

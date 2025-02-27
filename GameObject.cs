@@ -27,7 +27,7 @@ namespace EntityComponent_NathanielWhite_20250224
         // A method that enables itself when the build is made
         public void Start()
         {
-            // Creates references to the two components
+            // Creates references to the amount of components you have
             var inputRef = new InputComponent();
             var drawRef = new DrawComponent();
 
@@ -42,7 +42,7 @@ namespace EntityComponent_NathanielWhite_20250224
         // A method that loads whatever is in it each frame
         public void Update()
         {
-            // Makes a for loop that has each component in the componentList update
+            // Makes a foreach loop that has each component in the componentList update
             foreach(var component in componentsList)
             {
                 component.Update();
@@ -52,7 +52,7 @@ namespace EntityComponent_NathanielWhite_20250224
         // A method that creates sprites to be used in the build
         public void Draw()
         {
-            // Makes a for loop that has each component in the componentList draw
+            // Makes a foreach loop that has each component in the componentList draw
             foreach (var component in componentsList)
             {
                 component.Draw(objTexture, objPosition, Color.White);
@@ -75,9 +75,15 @@ namespace EntityComponent_NathanielWhite_20250224
         }
 
         // A method used for getting a reference to a component
-        public void GetComponent(Component _component)
+        public void GetComponent(Type componentType)
         {
-
+            foreach (var component in componentsList)
+            {
+                if (componentType == component.GetType())
+                {
+                    
+                }
+            }
         }
     }
 }

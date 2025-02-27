@@ -43,6 +43,9 @@ namespace EntityComponent_NathanielWhite_20250224
     {
         public override void Update()
         {
+            // Uses the GetComponent method from GameObject to create a reference of another component
+            //gameObjectOwn.GetComponent(DrawComponent);
+
             // If W or the Up arrow key is pressed, the gameObject goes up
             if (Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
@@ -53,6 +56,7 @@ namespace EntityComponent_NathanielWhite_20250224
             if (Keyboard.GetState().IsKeyDown(Keys.D) || Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 gameObjectOwn.objPosition.X += 1f;
+                //gameObjectOwn.gameRef._spriteBatch.Draw(_texture, _position, Color.Red);
             }
 
             // If S or the Down arrow key is pressed, the gameObject goes down
@@ -65,6 +69,8 @@ namespace EntityComponent_NathanielWhite_20250224
             if (Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 gameObjectOwn.objPosition.X -= 1f;
+                //gameObjectOwn.gameRef._spriteBatch.Draw(_texture, _position, Color.Blue);
+
             }
         }
     }
